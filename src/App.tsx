@@ -4,37 +4,40 @@ import axios from 'axios';
 
 interface WeatherState {
   temp: number;
-  description: string;
   city: string;
 }
 
 
-  async function getWeather(city: string): Promise<WeatherState> {
-    const API_KEY = process.env.API_KEY_METEO_FRANCE;
-    const response = await axios.get('https://api.meteo-france.com/v1/forecast/next-hours/${city}?token=${API_KEY}');
-    const data = response.data;
-    const temp = data.main.temp;
-    const description = data.weather[0].description;
-    return {temp, description, city};
-  };
+async function getWeather(city: string): Promise<WeatherState> {
+  const API_KEY = 'YOUR_API_KEY';
+  const response = await axios.get(`https://api.meteo-concept.com/api/forecast/nextHours?token=${API_KEY}&insee=33063`);
+  const data = response.data;
+  const temp = data.forecast[0].temp2m;
+  console.log(data);
+  return {temp, city};
+};
 
 function App() {
-  const [weather, setWeather] = useState<WeatherState>({temp: 0, description: '', city: 'Bordeaux'});
-  setInterval(() => {
-    getWeather('Paris').then((weather) => {
+  const [weather, setWeather] = useState<WeatherState>({temp: 0, city: 'Bordeaux'});
+  useEffect(() => {
+    getWeather('Bordeaux').then((weather) => {
       setWeather(weather);
+    }).catch((error) => {
+      setWeather({temp: 61, city: "OUPSI"});
     });
-  }, 1000);
+    setInterval(() => {
+      getWeather('Bordeaux').then((weather) => {
+        setWeather(weather);
+      }).catch((error) => {
+        setWeather({temp: 61, city: "OUPSI"});
+      });
+    }, 3600000);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
         <p>
           {weather.city}: {weather.temp}°C
         </p>
-        <p>
-          {weather.description}
-        </p>
-      </header>
     </div>
   );
 }
