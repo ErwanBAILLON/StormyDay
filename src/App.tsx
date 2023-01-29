@@ -74,65 +74,66 @@ function App() {
 
   return (
     <div className="App">
-      <form>
-        <label>
-          <select value={city} onChange={(e) => setCity(e.target.value)}>
-            <option value="Bordeaux">Bordeaux</option>
-            <option value="Paris">Paris</option>
-            <option value="Lyon">Lyon</option>
-            <option value="Marseille">Marseille</option>
-            <option value="Toulouse">Toulouse</option>
-            <option value="Nice">Nice</option>
-            <option value="Nantes">Nantes</option>
-            <option value="Montpellier">Montpellier</option>
-            <option value="Strasbourg">Strasbourg</option>
-            <option value="Brest">Brest</option>
-            <option value="Rennes">Rennes</option>
-            <option value="Le Havre">Le Havre</option>
-            <option value="Reims">Reims</option>
-            <option value="Lille">Lille</option>
-            <option value="Saint-Étienne">Saint-Étienne</option>
-            <option value="Toulon">Toulon</option>
-            <option value="Grenoble">Grenoble</option>
-            <option value="Dijon">Dijon</option>
-            <option value="Angers">Angers</option>
-            <option value="Nîmes">Nîmes</option>
-            <option value="Villeurbanne">Villeurbanne</option>
-            <option value="Le Mans">Le Mans</option>
-            <option value="Aix-en-Provence">Aix-en-Provence</option>
-            <option value="Boulogne-Billancourt">Boulogne-Billancourt</option>
-            <option value="Limoges">Limoges</option>
-            <option value="Clermont-Ferrand">Clermont-Ferrand</option>
-            <option value="Tours">Tours</option>
-            <option value="Amiens">Amiens</option>
-            <option value="Perpignan">Perpignan</option>
-            <option value="Besançon">Besançon</option>
-            <option value="Metz">Metz</option>
-            <option value="Rouen">Rouen</option>
-            <option value="Argenteuil">Argenteuil</option>
-            <option value="Nancy">Nancy</option>
-            <option value="Saint-Denis">Saint-Denis</option>
-            <option value="Montreuil">Montreuil</option>
-            <option value="Caen">Caen</option>
-            <option value="Nanterre">Nanterre</option>
-            <option value="Roubaix">Roubaix</option>
-            <option value="Mulhouse">Mulhouse</option>
-            <option value="Saint-Paul">Saint-Paul</option>
-            <option value="Poitiers">Poitiers</option>
-            <option value="Orléans">Orléans</option>
-            <option value="Rueil-Malmaison">Rueil-Malmaison</option>
-            <option value="Avignon">Avignon</option>
-            <option value="Tourcoing">Tourcoing</option>
-            <option value="Versailles">Versailles</option>
-            <option value="Créteil">Créteil</option>
-            <option value="Colombes">Colombes</option>
-            <option value="Aulnay-sous-Bois">Aulnay-sous-Bois</option>
-            <option value="Bourges">Bourges</option>
-            <option value="Vitry-sur-Seine">Vitry-sur-Seine</option>
-            <option value="Arcachon">Arcachon</option>
-          </select>
-        </label>
-      </form>
+      <div>
+        <h1>Weather App</h1>
+      </div>
+      <div className='my_select_city'>
+        <select className='selector_city' value={city} onChange={(e) => setCity(e.target.value)}>
+          <option value="Bordeaux">Bordeaux</option>
+          <option value="Paris">Paris</option>
+          <option value="Lyon">Lyon</option>
+          <option value="Marseille">Marseille</option>
+          <option value="Toulouse">Toulouse</option>
+          <option value="Nice">Nice</option>
+          <option value="Nantes">Nantes</option>
+          <option value="Montpellier">Montpellier</option>
+          <option value="Strasbourg">Strasbourg</option>
+          <option value="Brest">Brest</option>
+          <option value="Rennes">Rennes</option>
+          <option value="Le Havre">Le Havre</option>
+          <option value="Reims">Reims</option>
+          <option value="Lille">Lille</option>
+          <option value="Saint-Étienne">Saint-Étienne</option>
+          <option value="Toulon">Toulon</option>
+          <option value="Grenoble">Grenoble</option>
+          <option value="Dijon">Dijon</option>
+          <option value="Angers">Angers</option>
+          <option value="Nîmes">Nîmes</option>
+          <option value="Villeurbanne">Villeurbanne</option>
+          <option value="Le Mans">Le Mans</option>
+          <option value="Aix-en-Provence">Aix-en-Provence</option>
+          <option value="Boulogne-Billancourt">Boulogne-Billancourt</option>
+          <option value="Limoges">Limoges</option>
+          <option value="Clermont-Ferrand">Clermont-Ferrand</option>
+          <option value="Tours">Tours</option>
+          <option value="Amiens">Amiens</option>
+          <option value="Perpignan">Perpignan</option>
+          <option value="Besançon">Besançon</option>
+          <option value="Metz">Metz</option>
+          <option value="Rouen">Rouen</option>
+          <option value="Argenteuil">Argenteuil</option>
+          <option value="Nancy">Nancy</option>
+          <option value="Saint-Denis">Saint-Denis</option>
+          <option value="Montreuil">Montreuil</option>
+          <option value="Caen">Caen</option>
+          <option value="Nanterre">Nanterre</option>
+          <option value="Roubaix">Roubaix</option>
+          <option value="Mulhouse">Mulhouse</option>
+          <option value="Saint-Paul">Saint-Paul</option>
+          <option value="Poitiers">Poitiers</option>
+          <option value="Orléans">Orléans</option>
+          <option value="Rueil-Malmaison">Rueil-Malmaison</option>
+          <option value="Avignon">Avignon</option>
+          <option value="Tourcoing">Tourcoing</option>
+          <option value="Versailles">Versailles</option>
+          <option value="Créteil">Créteil</option>
+          <option value="Colombes">Colombes</option>
+          <option value="Aulnay-sous-Bois">Aulnay-sous-Bois</option>
+          <option value="Bourges">Bourges</option>
+          <option value="Vitry-sur-Seine">Vitry-sur-Seine</option>
+          <option value="Arcachon">Arcachon</option>
+        </select>
+      </div>
       <p></p>
       <div className="weather">
           <p className='output_temp'>

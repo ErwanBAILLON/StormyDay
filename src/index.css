@@ -1,3 +1,22 @@
+/* Mobile */
+.container {
+  padding: 14px;
+}
+
+/* Tablet */
+@media (min-width:600px) {
+  .container {
+      padding: 20px;
+  }
+}
+
+/* Desktop */
+@media (min-width:900px) {
+  .container {
+      padding: 24px;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,20 +29,80 @@ body {
   background: #30a2d3;
 }
 
+h1 {
+  font-size: 32px;
+  text-shadow: -1px -1px #eee, 1px 1px #888, -3px 0 4px #000;
+  font-family:"Segoe print", Arial, Helvetica, sans-serif;
+  color:#ccc;
+  padding:16px;
+  font-weight:lighter;
+  text-align:center;
+  display:inline;
+  line-height:128px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+.selector_city {
+  background-color: white;
+  border: thin solid rgb(166, 166, 255);
+  border-radius: 10px;
+  box-shadow: 0 0 0 0.1em rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.selector_city.my_select_city {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+.selector_city.classic:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    linear-gradient(to right, gray, gray);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
 .output_temp {
-  width: auto; 
+  width: 50%; 
   margin: auto; 
   text-align: center;
-  
-  /* Optional Styling */
   padding: 20px;
-  border-style: solid;
-  border-color: #B6C7D6;
-  border-radius: 20px;
-  background-color: #EAF0F6;
+  border-style: thin solid;
+  border-color: rgb(143, 143, 255);
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 0 0 0.2em rgba(55, 30, 99, 0.1);
 }
