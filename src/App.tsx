@@ -12,7 +12,7 @@ interface CityState {
   ncity: string;
 }
 
-const API_KEY = 'afaebf7b1fbfd9171108c7fb04b061fcdfa757c907689f8e964c96d1a41c555e';
+const API_KEY = 'YOUR_API_KEY';
 
 async function getCity(city : string) : Promise<CityState> {
   const response = await axios.get(`https://api.meteo-concept.com/api/location/cities?token=${API_KEY}&search=${city}`);
