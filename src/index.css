@@ -15,8 +15,8 @@ code {
     monospace;
 }
 
-p {
-  width: 400px; 
+.output_temp {
+  width: auto; 
   margin: auto; 
   text-align: center;
   
