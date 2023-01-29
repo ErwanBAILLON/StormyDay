@@ -12,20 +12,17 @@ interface CityState {
   ncity: string;
 }
 
-const API_KEY = 'YOUR_API_KEY';
+const API_KEY = 'afaebf7b1fbfd9171108c7fb04b061fcdfa757c907689f8e964c96d1a41c555e';
 
 async function getCity(city : string) : Promise<CityState> {
   const response = await axios.get(`https://api.meteo-concept.com/api/location/cities?token=${API_KEY}&search=${city}`);
   const data = response.data;
-  console.log(data.cities[0].insee);
   const insee = data.cities[0].insee;
   const ncity = city;
-  console.log(ncity);
   return {insee, ncity};
 }
 
 async function getWeather(city : string, insee: string): Promise<WeatherState> {
-  console.log(insee);
   const response = await axios.get(`https://api.meteo-concept.com/api/forecast/nextHours?token=${API_KEY}&insee=${insee}`);
   const data = response.data;
   const temp = data.forecast[0].temp2m;
@@ -33,19 +30,20 @@ async function getWeather(city : string, insee: string): Promise<WeatherState> {
 };
 
 function App() {
-  const [weather, setWeather] = useState<WeatherState>({temp: 0, city: 'Bordeaux'});
-  const [city, setCity] = useState<string>('Bordeaux');
-  const [oldCity, setOldCity] = useState<string>('Bordeaux');
+  const [weather, setWeather] = useState<WeatherState>({temp: 0, city: 'NONE'});
+  const [city, setCity] = useState<string>('Select your city');
+  const [oldCity, setOldCity] = useState<string>('Select your city');
   useEffect(() => {
     setCity(city);
 
     if (oldCity != city) {
       setOldCity(city);
+    } else if (city === 'Select your city') {
+      return;
     } else {
       return;
     }
     getCity(city).then((result) => {
-      console.log(result);
       getWeather(city, result.insee).then((weather) => {
         setCity(result.ncity);
         setWeather(weather);
@@ -57,6 +55,7 @@ function App() {
       setWeather({temp: 0, city: city});
     });
   }, [city, weather]);
+
   useEffect(() => {
     setInterval(() => {
       getCity(city).then((result) => {
@@ -75,10 +74,11 @@ function App() {
   return (
     <div className="App">
       <div>
-        <h1>Weather App</h1>
+        <h1>StormyDay App</h1>
       </div>
       <div className='my_select_city'>
         <select className='selector_city' value={city} onChange={(e) => setCity(e.target.value)}>
+          <option value="Select your city">Select your city</option>
           <option value="Bordeaux">Bordeaux</option>
           <option value="Paris">Paris</option>
           <option value="Lyon">Lyon</option>
