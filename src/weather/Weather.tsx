@@ -48,14 +48,11 @@ export function Weather() {
     }, [oldCity]);
 
     useEffect(() => {
-        if (city.city === oldCity) {
+        if (city.city === oldCity)
             return;
-        } else {
+        else
             setCity(city);
-        }
-        setInterval(() => {
-            getCity(city.city).then((city) => setCity(city));
-        }, 3600000);
+        getCity(city.city).then((city) => setCity(city));
     }, [city, oldCity]);
     
     return (
