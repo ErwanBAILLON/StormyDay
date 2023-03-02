@@ -31,14 +31,13 @@ async function getCity(city : string) : Promise<CityState> {
         return {insee: 'NULL', city: 'NONE', temp: 0};
     }
     const dt = res.data;
-    console.log(dt);
     const insee = data.cities[0].insee;
     const temp = dt.forecast[0].temp2m;
     return {insee, city, temp};
     }
 
 export function Weather() {
-    const [city, setCity] = useState<CityState>({insee: 'NULL', city: 'NONE', temp: 0});
+    const [city, setCity] = useState<CityState>({insee: 'NULL', city: 'Select your city', temp: 0});
     const [oldCity, setOldCity] = useState<string>('Select your city');
 
     useEffect(() => {
@@ -50,8 +49,8 @@ export function Weather() {
     useEffect(() => {
         if (city.city === oldCity)
             return;
-        else
-            setCity(city);
+        else 
+            setCity(oldCity);
         getCity(city.city).then((city) => setCity(city));
     }, [city, oldCity]);
     
@@ -69,7 +68,7 @@ export function Weather() {
         <div className="weather">
             <p className='output_temp'>
               {
-                city.city === 'NONE' ? 'Select your city' : city.city
+                city.city === 'Select your city' ? 'Select your city' : city.city
               }: {
                 city.temp === 0 ? 'Loading...' : city.temp
               }°C
