@@ -50,7 +50,7 @@ export function Weather() {
         if (city.city === oldCity)
             return;
         else 
-            setCity(oldCity);
+            setCity({insee: 'NULL', city: oldCity, temp: 0});
         getCity(city.city).then((city) => setCity(city));
     }, [city, oldCity]);
     
